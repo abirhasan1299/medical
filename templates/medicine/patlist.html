@@ -1,0 +1,48 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% load humanize %}
+{% block css %}
+<style>
+    #tag{
+        color:purple;
+        opacity:80%;
+        text-align:center;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<h1 id='tag'>Patient Data</h1>
+<div class="container">
+<div class='row'>
+    <div class='col-8'>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>SL</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>From</th>
+                    <th>Read</th>
+                </tr>
+            </thead>
+            <tbody>
+             {% for p in data %}   
+                <tr>
+                    <td scope="row">{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.date}}</td>
+                    <td>{{p.date|naturalday}}+{{p.time}}</td>
+                    <td><a href="/medicine/patient_data/{{p.id}}" class='btn btn-primary'>View</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
+
+{% endblock body %}
+{% block js %}
+
+
+{% endblock js %}

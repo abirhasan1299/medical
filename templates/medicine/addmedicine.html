@@ -1,0 +1,19 @@
+{% extends 'basic.html' %}
+{% block title %}Add Medicine{% endblock title %}
+{% block body %}
+{% load crispy_forms_tags %}
+<div clas='row'>
+   <br><br>
+    <h1  style='color:blue;text-align:center;font-family:sefif;'> Add Medicine</h1>
+    <div class="col-md-6 offset-md-3">
+       <div class="form-group">
+         <form method="post">
+            {% csrf_token %}
+            {{form | crispy}}
+            <br>
+            <button type='submit' class='btn btn-danger'>Add</button>
+         </form>
+       </div>
+    </div>
+</div>
+{% endblock body %}

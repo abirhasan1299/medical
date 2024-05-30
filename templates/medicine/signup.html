@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+{% load static %}
+
+{% block css %}
+<style>
+ #submit{
+  margin-left:85%;
+ }
+ #btn{
+              position:absolute;
+              right:5%;
+            }
+</style>
+{% endblock css %}
+
+
+{% block body %}
+{% load crispy_forms_tags %}
+<div class='container'>
+<div class='row'>
+    <div  class='col'>
+        <br>
+        <p class='display-5' style="font-family:serif;color:#706b6b;">Register</p>
+        <form method="post">
+              {% csrf_token %}
+              {{ form|crispy }}
+          <button type="submit" class="btn btn-primary" id='submit'>Submit </button>         
+        </form>
+
+    </div>
+    <div  class='col'>
+        <img src="{% static 'images/m.png' %}" class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}" alt="">
+    </div>
+     <div class='row'>
+        
+     </div>
+</div>
+</div>
+<br><br>
+{% endblock body %}

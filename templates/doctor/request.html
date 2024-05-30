@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+{% block title %}Requests{% endblock title %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}{% endblock css %}
+
+{% block body %}
+<div class='container'>
+    {% include 'messages.html' %}
+    <div class='row'>
+        <table class="table table-striped table-inverse table-responsive">
+            {% for p in pres %}
+                <center><h4>Last Check Report: </h4>
+                <p>{{p.id}}---{{p.name}}---{{p.gender}}</p></center>
+            {% endfor %}
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Serial</th>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Mobile</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+             {% for request in data %}
+                        <tr>
+                        <td scope="row">{{request.id}}</td>
+                        <td>{{request.name}}</td>
+                        <td>{{request.gender}}</td>
+                         <td>+880{{request.mobile}}</td>
+                        <td><a class="btn btn-danger" href="/doctor/prescribed/{{request.id}}/" role="button">Check</a>    
+                        </td>       
+                    </tr>
+            {% endfor %}
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}

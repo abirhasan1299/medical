@@ -1,0 +1,92 @@
+{% extends 'basic.html' %}
+{% block title %}About{% endblock title %}
+{% load static %}
+{% block css %}
+<style>
+    #btn{
+        position:absolute;
+        right:5%;
+        }
+    #header{
+        background:#f54040;
+    }
+    #header2{
+        background:#0c78ff;
+    }
+    #header3{
+        background:#e1eb1f;
+        background-image:url('{% static 'images/bold.jpg' %}');
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:cover;
+    }
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container">
+    <div class='row' id="header">
+        <div class="col-6">
+            <br><br><br><br>
+            <p class="display-4" style="margin-left:10%;color:white;">Let There Be Light<br>
+            Help Them and <br>
+            Lead to Help Happy,<br>
+            Healthy Life</p>
+            <br>
+            <p class="display-6" style="margin-left:50%;"> MD Abir Hasan</p><br>
+            <p style="text-align:center;color:yellow;font-size:13px;">Computer Science & Engineering , Department</p>
+        </div>
+        <div class="col-5">
+            <img src="{% static 'images/iop.png' %}"  alt="s">
+        </div>
+    </div>
+    <div class='row' id="header2">
+        <div class="col-6">
+            <br>
+           <h2 style="color:white;">Help Poor and Needy People</h2><br>
+Helping poor and needy people is vital to strengthen the whole society. We raise the entire community as we provide support and a helping hand to those less fortunate than us.
+<br>
+Helping them lead a better life for themselves and their community later on in life. Helping the poor and needy is a duty of every Muslim to give Zakat and Sadaqah to the poor and needy as a part of the worship and pleasing Allah the Almighty.
+
+<h2 style="color:white;">Reason for Poverty </h2>
+There are no specific reasons for poverty. However, we can see some reasons that might be helping poverty.<br>
+
+1.Inequalities in income distribution.<br>
+2.Access to productive resources.<br>
+3.Basic social services.<br>
+4.Unequal chances.<br>
+5.Lack of education.<br>
+6.Conflict and instability. And more other reasons.<br>
+        </div>
+        <div class="col-6">
+            <br>
+            <h3 style="color:white;">We Promise to Free Treatment</h3><br>
+            <ul>
+                <li>Treatment is Free For All</li>
+                <li>Our Doctors ensure the Primary Treatment For You</li>
+                <li>Anyone Can Send Requests for checkup</li>
+                <li>Take the call if Doctors call you for emergency</li>
+                <li>Never Put False MObile Number another You may fall in trouble</li>
+                <li>We always believe to Keep you healthy and Riskless.</li>
+                <li>For an emergency call you must be come go clinic or hospital</li>
+                <li>Never Hide Your identity</li>
+                <li>Try to explain your all problem accurately in problem box</li>
+                <li>Ensure that you must to save or keep it QR Code or Print it</li>
+                <li>Prescribe Medicine You can buy from any Pharmacy or Drugstore</li>
+                <li>Please Ensure your prescibe is in Doctors name and status </li>
+                <li>Without Doctors status Your prescription not be valid or Illigel </li>
+                <li>After Taking Any Category Vaccine You cant't donate blood to other</li>
+                <li>Please quite smoking</li>
+                <li>Stay Safe, Healthy & Happy</li>
+                <li>Doctors are stay with you all the time</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" id="header3">    
+        <center><blockquote class="blockquote">
+            <p class="mb-0"><p class="display-4">Know Thyself</p></p>
+            <footer class="blockquote-footer"> <cite title="Source Title">Thomas Alva Edison</cite></footer>
+        </blockquote></center><br><br><br><br><br><br><br><br><br><br>
+        <center>Sponsored @ MedBD</center><br><br><br><br><br><br><br><br><br><br>
+    </div>
+</div>
+{% endblock body %}

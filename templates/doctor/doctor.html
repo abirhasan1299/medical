@@ -1,0 +1,67 @@
+{% extends 'basic.html' %}
+{% block title %}Doctor{% endblock title %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+   <style>
+    @font-face{
+        font-family:pirot;
+        src:url('{% static 'font/poiret.ttf' %}') format('truetype');
+    }
+    @font-face{
+        font-family:rubik;
+        src:url('{% static 'font/rubik.ttf' %}') format('truetype');
+    }
+    #btn{
+              position:absolute;
+              right:5%;
+            }
+    #header{
+        color:#8c8c8c;
+        font-family:rubik;
+        text-align:center;
+    }
+    #btn1{
+        width:100%;
+    }
+    .box p{
+        font-family:sans,serif;
+        font-size:18px;
+        text-align:justify;
+        color:#505050;
+    }
+    .box h3{
+        font-family:sans,serif;
+        font-weight:bolder;
+        color:steelblue;
+    }
+   </style> 
+{% endblock css %}
+
+{% block body %}
+<div class='container'>
+    <div class='row'>
+        <div class='col-6'>
+            <br>
+           <div class='box'>
+                <h3>Write Problems in Query Box:</h3>
+                <p>In the <b style='color:red;'><u>Query Field </u></b> in right side you must to tell your problems , what you face basically. Its the box for told <b style='color:red;'><u> Patient Problem </u></b> It will be better for you if <b style='color:red;'><u>you write your problem point by point or step by step.</u></b> Another It's become so difficult for doctor to read all the whole paragraph what you write.So Please Kindly if you want to take quick doctor prescribe then you must be followed this step. Another it will take long time by doctor to precribe your disease and medicine</p>
+                <center><img src="{% static 'images/tit.png' %}" width="50%" alt=""></center>
+                <h3>Data Must be Valid:</h3>
+                <p>Your Provided data like Your Name, Age, Height, Problems, Mobile, Email and other <b style='color:red;'><u>identity information must be valid</u></b> for that you can find your prescription and Doctor prescribed you disease perfectly. Another Its will create issue to find your prescription or it's become delay for you to find or Admin will deleted you data and take some nesseccery steps.</p>
+           </div> 
+           <center><img src="{% static 'images/corona.png' %}" width='60%'  alt=""> </center>       
+        </div>
+         <div class='col-6'>
+            <br>
+            <p id="header" class='display-6'>Tell About Problems...</p>
+            <form method='post'>
+                {% csrf_token %}
+                {{form|crispy}}
+                <br>
+                <button type="submit" class="btn btn-primary" id="btn1">Send</button>
+           </form>
+         </div>
+    </div>
+</div>
+{% endblock body %}

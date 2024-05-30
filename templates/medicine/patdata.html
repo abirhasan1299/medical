@@ -1,0 +1,101 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block css %}
+<style>
+
+</style>
+{% endblock css %}
+{% block body %}
+<div class="container">
+            <h1 style="text-align:right;color:green;font-size:15px;"><sub style="font-size:15px;color:grey;">Free Medical Service</sub></h1><br>
+            <div class="row">
+                <div class='col'>
+                    <strong>Patient Name: </strong>{{object.name}}<br>
+                    <b>Age: </b>{{object.age}}<br>
+                    <b>Date: </b>{{object.date}}<br>
+                    <b>Time: </b>{{object.time}}<br>
+                </div>
+                <div class='col'>
+                   <strong><i class="bi bi-flag-fill"></i> Cheif Symptoms</strong>
+                   <p>{{object.symptoms | linebreaks}}</p>
+                </div>
+            </div>
+            <br><hr>
+            <div class='row'>
+                <div class='col'>
+                    <strong><i class="bi bi-search"></i> Investigation</strong><br>
+                    {{object.investigation | linebreaks}}<br><br>
+                    <b><i class="bi bi-chat-square-text"></i> Advice</b><br>
+                     {{object.advice | linebreaks}}<br><br>
+
+                    <b><i class="bi bi-pin-map"></i> Disease</b><br>
+                    <i class="bi bi-arrow-right-circle"></i> {{object.disease}}<br>
+                </div>
+                <div class='col'>
+                   <b>R<sub>x</sub></b>
+                   <br><br>
+            {% block content %}
+                    {% if object.med_types_1 == '0' %}
+                        
+                    {% else %}
+                        <p>{{object.med_types_1}}.&nbsp; &nbsp;{{object.grp_1}} <i class="bi bi-dash-lg"></i> {{object.brand_1}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_1}}] &nbsp; &nbsp; {{object.day_1}}-day , {{object.qty_1}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_2 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_2}}.&nbsp; &nbsp;{{object.grp_2}} <i class="bi bi-dash-lg"></i> {{object.brand_2}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_2}}] &nbsp; &nbsp; {{object.day_2}}-day , {{object.qty_2}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_3 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_3}}.&nbsp; &nbsp;{{object.grp_3}} <i class="bi bi-dash-lg"></i> {{object.brand_3}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_3}}] &nbsp; &nbsp; {{object.day_3}}-day , {{object.qty_3}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_4 == '0' %}
+                        
+                    {% else %}
+                        <p>{{object.med_types_4}}.&nbsp; &nbsp;{{object.grp_4}} <i class="bi bi-dash-lg"></i> {{object.brand_4}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_4}}] &nbsp; &nbsp; {{object.day_4}}-day , {{object.qty_4}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_5 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_5}}.&nbsp; &nbsp;{{object.grp_5}} <i class="bi bi-dash-lg"></i> {{object.brand_5}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_5}}] &nbsp; &nbsp; {{object.day_5}}-day , {{object.qty_5}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_6 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_6}}.&nbsp; &nbsp;{{d.grp_6}} <i class="bi bi-dash-lg"></i> {{object.brand_6}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_6}}] &nbsp; &nbsp; {{object.day_6}}-day , {{object.qty_6}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_7 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_7}}.&nbsp; &nbsp;{{object.grp_7}} <i class="bi bi-dash-lg"></i> {{object.brand_7}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_7}}] &nbsp; &nbsp; {{object.day_7}}-day , {{object.qty_7}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_8 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_8}}.&nbsp; &nbsp;{{object.grp_8}} <i class="bi bi-dash-lg"></i> {{object.brand_8}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_8}}] &nbsp; &nbsp; {{object.day_8}}-day , {{object.qty_8}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_9 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_9}}.&nbsp; &nbsp;{{object.grp_9}} <i class="bi bi-dash-lg"></i> {{object.brand_9}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_9}}] &nbsp; &nbsp; {{object.day_9}}-day , {{object.qty_9}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_10 == '0' %}
+                       
+                    {% else %}
+                        <p>{{object.med_types_10}}.&nbsp; &nbsp;{{object.grp_10}} <i class="bi bi-dash-lg"></i> {{object.brand_10}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_10}}] &nbsp; &nbsp; {{object.day_10}}-day , {{object.qty_10}} Qty</sub></p>
+                {% endif %}
+                {% if object.med_types_11 == '0' %}
+
+                    {% else %}
+                        <p>{{object.med_types_11}}.&nbsp; &nbsp;{{object.grp_10}} <i class="bi bi-dash-lg"></i> {{object.brand_11}} <br><sub style="margin-left:10%;">&nbsp; &nbsp; [{{object.taken_time_11}}] &nbsp; &nbsp; {{object.day_11}}-day , {{object.qty_11}} Qty</sub></p>
+                {% endif %}
+
+            {% endblock content %}
+                </div>
+
+            </div>
+
+        </div>
+
+{% endblock body %}

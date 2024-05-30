@@ -1,0 +1,39 @@
+{% extends 'basic.html' %}
+{% block title %}View Medicine{% endblock title %}
+{% block body %}
+
+<div class="container" style="">
+    <br><br>
+    <h1 style="text-align:center;font-family:sans;color:green;">Medicine List</h1>
+        <div class='col-offset-md-6'>
+        <table class="table table-hover" style="border:1px solid black;">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                     <th>Group</th>
+                     <th>Price (taka)</th>
+                     <th>Issue Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in med %}
+                <tr>
+                    <td scope="row">{{p.id}}</td>
+                    <td>{{p.name}}</td>
+                    <td>{{p.group}}</td>
+                    <td>{{p.price}}</td>
+                    <td>{{p.expire}}</td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    {% for x in total_price  %}
+                       Total: {{x}}
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock body %}

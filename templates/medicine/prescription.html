@@ -1,0 +1,113 @@
+{% extends 'basic.html' %}
+{% block title %}
+    Precription | Doctor
+{% endblock title %}
+{% block body %}
+ <div class="container">
+            <h3 style='color:Green;padding:3px;font-family:serif;'>Medicine Bangla</h3>
+     <div id="demo"> </div>
+            <form method='post'>
+                {% csrf_token %}
+                <div class='row'>
+                    {% if object in data %}
+                    <div class="col-sm-8">
+                        <input type='text' name='name' placeholder='Patient Name' value='{{object.name}}'>
+                        <input type='date' name='date' placeholder='Date'>
+                        <input type='time' name='time' placeholder='Time'>
+                        <input type='hidden' name='mobile' value='{{object.mobile}}'>
+                        <input type='text' name='age' placeholder='Age' value='{{object.age}}'>                       
+                    </div>
+                    <div class="col-sm-2">
+                        <button type='submit' class='btn btn-danger' onclick="myFunction()">Precribed</button>
+                    </div>
+                </div>
+                <br>
+                <div class='row'>
+                    
+                         <div class='col-sm-6'>
+                            <textarea  name="symptoms" rows="5" cols="50" placeholder="Symptoms/Complain">{{object.problem}}</textarea><br>
+                            <input type='text' style="width:72%;" name='disease' placeholder='Disease'><br>
+                        </div>
+                        {% endif %}
+                        <div class='col-sm-5'>
+                            <div style="position:absolute;right:2%"> 
+                                <textarea  name="advice" rows="3" cols="50" placeholder="Advice to Patient"></textarea><br>
+                            <textarea  name="investigation" rows="3" cols="50" placeholder="Investigation"></textarea><br>
+                            </div>
+                        </div>
+                </div>
+                <div class='row'>
+                     <div class="col">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Type</th>
+                                    <th>Group</th>
+                                    <th>Brand</th>
+                                    <th>Take Time</th>
+                                    <th>Day</th>
+                                    <th>Qty</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for i in range %}
+                                <tr>
+                                    <td scope="row">{{i}}</td>
+                                    <td><select name="med_types_{{i}}">
+                                         <option value="0" selected>Select Medicine Type</option>
+                                        <option value="Cap">Cap</option>
+                                        <option value="Tab">Tab</option>
+                                        <option value="Syp">Syp</option>
+                                        <option value="Sus">Sus</option>
+                                        <option value="Oral">Oral</option>
+                                        <option value="Injec">Injec</option>
+                                    </select></td>
+                                    <td><input type='text'  name="grp_{{i}}" id='grp_{{i}}' class="ui-autocomplete-input"></td>
+                                    <td><input type='text'  name="brand_{{i}}" id='brand_{{i}}' class="ui-autocomplete-input"></td>
+                                    <td><select name="taken_time_{{i}}">
+                                         <option selected>Select  Take Time </option>
+                                        <option value="1+1+1">1+1+1</option>
+                                        <option value="1+0+1">1+0+1</option>
+                                        <option value="1+0+0">1+0+0</option>
+                                        <option value="0+1+1">0+1+1</option>
+                                        <option value="0+1+0">0+1+0</option>
+                                        <option value="0+0+1">0+0+1</option>
+                                        <option value="1+1+0">1+1+0</option>
+                                        <option value="0+0+0">0+0+0</option>
+                                    </select></td>
+                                    <td><input type='number' name="day_{{i}}"></td>
+                                    <td><input type='number' name="qty_{{i}}"></td>
+                                </tr> 
+                            {% endfor %} 
+                            </tbody>
+                        </table>                 
+                    </div>
+                </div>
+            </form>   
+        </div>
+{% endblock body %}
+{% block js %}
+
+<script>
+$( function() {
+    $( "#grp_1,#grp_2,#grp_3,#grp_4,#grp_5,#grp_6,#grp_7,#grp_8,#grp_9,#grp_10,#grp_11,#grp_12,#grp_13,#grp_14,#grp_15,#grp_16,#grp_17,#grp_18,#grp_19,#grp_20" ).autocomplete({
+      source: '{% url 'group' %}',
+    });
+    $( "#brand_1,#brand_2,#brand_3,#brand_4,#brand_5,#brand_6,#brand_7,#brand_8,#brand_9,#brand_10,#brand_11,#brand_12,#brand_13,#brand_14,#brand_15,#brand_16,#brand_17,#brand_18,#brand_19,#brand_20" ).autocomplete({
+      source: '{% url 'Brand' %}',
+    });
+  } );
+
+function myFunction() {
+  let text = "Sure to Prescribe ?";
+  if (confirm(text) == true) {
+    text = 'Done';
+  } else {
+    text = "Cancel-!";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+{% endblock js %}
